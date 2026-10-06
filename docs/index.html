@@ -49,7 +49,7 @@
   <main>
     <div class="status" role="status" aria-live="polite">
       <span class="dot" aria-hidden="true"></span>
-      <div><strong id="status-title">Translation in progress</strong><span id="status-copy">The English patch is not available yet. This page will host the patch when the translation is ready.</span></div>
+      <div><strong id="status-title">Translation in progress</strong><span id="status-copy">Initial dialogue text has been found in the supported ROM. The full script and font table still need to be mapped, so no playable patch is available yet.</span></div>
     </div>
 
     <section aria-labelledby="download-title">
@@ -77,10 +77,11 @@
 
     <section aria-labelledby="research-title">
       <h2 id="research-title">Translation progress</h2>
-      <p>The dialogue has not yet been extracted reliably, so there is no playable patch. The available public character table is an incomplete draft for the original release and does not cover the full character set. Scanning the Rev 1 ROM directly produces false matches in graphics and lookup data.</p>
-      <p>A useful lead is a community analysis of the related Future Edition. It describes building a custom character table and using a ROM text converter to read dialogue data. Its reported offsets are for Future Edition and have not been verified for this Past Edition ROM.</p>
+      <p>GCCODE2 has confirmed dialogue candidates and a passage from the opening story recap. Special markers and multiple text encodings still need to be identified before the full script can be translated and reinserted.</p>
+      <p>The existing character table is an incomplete draft for an earlier ROM revision. Community research on the related Future Edition reports that its font lacks a complete A–Z alphabet; this still needs to be checked against the Past Edition. Read the <a href="research.html">extraction notes</a> and <a href="translation-data/opening-dialogue.csv">draft translation ledger</a> for confirmed offsets and remaining questions.</p>
       <ul class="source-links">
         <li><a href="https://datacrystal.tcrf.net/wiki/Sanrio_Timenet:_Kako_Hen_and_Mirai_Hen/TBL">Incomplete public character table</a></li>
+        <li><a href="https://wikiwiki.jp/timenet/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E5%9B%9E%E6%83%B3">Community story-recap transcript</a></li>
         <li><a href="https://note.com/tetuhatoch810/n/n45be7b593025">How the custom character table was assembled</a></li>
         <li><a href="https://i486.mods.jp/ichild/get-character-code-type-ii-gccode2">GCCODE2 text-converter information</a></li>
         <li><a href="https://tetuhatoplus03game.blogspot.com/2024/08/blog-post_28.html">Future Edition dialogue-data analysis</a></li>

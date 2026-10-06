@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8fb">
+  <title>Text Extraction Notes — Sanrio Timenet: Kako Hen</title>
+  <style>
+    :root { color-scheme: light; --ink: #2b2630; --muted: #716875; --pink: #c43c73; --line: #eadde5; --paper: #fff; --wash: #fff8fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--wash); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    header { padding: 38px 24px 30px; background: linear-gradient(140deg, #ffe6ef, #f5eafa 62%, #eaf6ff); border-bottom: 1px solid var(--line); }
+    main, .hero-inner { width: min(820px, calc(100% - 40px)); margin: 0 auto; }
+    main { padding: 24px 0 56px; }
+    h1 { margin: 8px 0; font-size: clamp(1.8rem, 6vw, 3rem); line-height: 1.1; }
+    h2 { margin: 0 0 10px; font-size: 1.3rem; }
+    p { margin: 0 0 14px; }
+    section { margin: 16px 0; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+    .eyebrow { color: var(--pink); font-size: .8rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+    .notice { color: var(--muted); }
+    a { color: var(--pink); }
+    code { padding: 2px 5px; border-radius: 5px; background: #f5edf2; overflow-wrap: anywhere; }
+    ul, ol { margin: 8px 0 0; padding-left: 22px; }
+    li { margin: 7px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-inner">
+      <div class="eyebrow">Sanrio Timenet: Kako Hen</div>
+      <h1>Text extraction notes</h1>
+      <p>Current findings for the Japanese Rev 1 ROM. The project does not have a playable English patch yet.</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Confirmed findings</h2>
+      <ul>
+        <li>The supported image is the 1 MiB Japanese Rev 1 ROM documented on the <a href="index.html">project home page</a>.</li>
+        <li>GCCODE2's relative search for <code>ﾀｽｹﾃｰﾎｼｲﾉ</code> returned two candidates. The saved conversion dump shows <code>たすけてーほしいの</code> at <code>0x8F665</code>. The surrounding marker bytes still need decoding.</li>
+        <li>The region near <code>0x89640</code> contains the opening story recap. The bytes at <code>0x8964F</code> decode as <code>たすけをもとめる</code> (“asking for help”) with the character mapping used in this region.</li>
+        <li>The public Data Crystal table is explicitly marked as an incomplete draft for an earlier ROM revision. Its known kana mapping helps interpret some bytes, but its full mapping and control codes have not been confirmed for Rev 1.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Provisional translation</h2>
+      <p>The opening recap is only partly decoded near <code>0x89640</code>. The confirmed fragment <code>たすけをもとめる</code> means “asking for help.” Read alongside the community story-recap reference, the provisional sentence is: “I received a message asking for help from an old man inside the computer.”</p>
+      <p class="notice">The opening phrase includes codes that are not yet identified, so the full sentence is not confirmed. The <a href="translation-data/opening-dialogue.csv">draft translation ledger</a> separates the provisional line from the confirmed fragment.</p>
+    </section>
+    <section>
+      <h2>Remaining work before a patch</h2>
+      <ol>
+        <li>Identify each text encoding and separate dialogue from names, variables, graphics, and other binary data.</li>
+        <li>Decode the message-control markers and locate the text pointers.</li>
+        <li>Map the target game's font. Community analysis of the related Future Edition reports that its font lacks the full A–Z alphabet; check the Past Edition ROM and add missing glyphs if needed.</li>
+        <li>Translate and reinsert the text, then check it in an emulator before building and releasing an IPS patch.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://datacrystal.tcrf.net/wiki/Sanrio_Timenet:_Kako_Hen_and_Mirai_Hen/TBL">Data Crystal character table</a></li>
+        <li><a href="https://wikiwiki.jp/timenet/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E5%9B%9E%E6%83%B3">Community story-recap transcript</a> — its author notes that the recap is for Mirai Hen and may differ from Kako Hen.</li>
+        <li><a href="https://note.com/tetuhatoch810/n/n69a66ad169f7">Community font-table analysis</a> — covers Mirai Hen and is a research lead, not a verified Rev 1 font map.</li>
+        <li><a href="https://i486.mods.jp/ichild/get-character-code-type-ii-gccode2">GCCODE2 text-converter information</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,3 @@
+offset,japanese_fragment,english_draft,status,notes
+0x8F665,たすけてーほしいの,"I want you to help me.",provisional,"GCCODE2 conversion dump; full sentence and speaker context are not yet confirmed."
+0x8964F,たすけをもとめる,"asking for help",fragment-confirmed,"Decoded from the target ROM's opening-recap region; surrounding control and dictionary codes remain unresolved."
