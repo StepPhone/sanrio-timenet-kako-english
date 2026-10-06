@@ -1,0 +1,12 @@
+{
+  "status": "in_progress",
+  "version": null,
+  "patch": null,
+  "format": "IPS",
+  "source": {
+    "title": "Sanrio Timenet: Kako Hen (Japan) (Rev 1)",
+    "size": 1048576,
+    "md5": "4505fd4df8eb721cf2f5b5be93682874",
+    "sha256": "d341925328066ac8bb90b6886c7366ebd61af6b1a341e1bad350127cf3edfa4c"
+  }
+}

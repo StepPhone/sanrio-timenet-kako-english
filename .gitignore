@@ -1,0 +1,11 @@
+# Keep the original ROM and emulator saves out of version control.
+*.gb
+*.gbc
+*.sav
+*.srm
+
+# Local build products.
+/build/
+/work/
+/translated.gbc
+

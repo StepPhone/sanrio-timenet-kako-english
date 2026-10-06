@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8fb">
+  <title>Sanrio Timenet: Kako Hen — English Translation</title>
+  <style>
+    :root { color-scheme: light; --ink: #2b2630; --muted: #716875; --pink: #c43c73; --line: #eadde5; --paper: #fff; --wash: #fff8fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--wash); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    header { padding: 64px 24px 46px; background: linear-gradient(140deg, #ffe6ef, #f5eafa 62%, #eaf6ff); border-bottom: 1px solid var(--line); }
+    main, .hero-inner { width: min(900px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow { color: var(--pink); font-size: .8rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { max-width: 720px; margin: 12px 0; font-size: clamp(2rem, 7vw, 3.8rem); line-height: 1.08; letter-spacing: -.035em; }
+    h2 { margin: 0 0 12px; font-size: 1.4rem; }
+    p { margin: 0 0 14px; }
+    .lede { max-width: 660px; color: #504653; font-size: 1.12rem; }
+    main { padding: 28px 0 64px; }
+    section, .status { margin: 18px 0; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: 0 8px 30px #5a29410a; }
+    .status { display: flex; gap: 15px; align-items: flex-start; border-color: #f0c7d9; background: #fffafd; }
+    .dot { flex: 0 0 12px; height: 12px; margin-top: 7px; border-radius: 50%; background: #d18a2f; box-shadow: 0 0 0 5px #d18a2f1a; }
+    .status strong { display: block; margin-bottom: 3px; }
+    .notice { color: var(--muted); }
+    .download { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; margin-top: 6px; padding: 0 18px; border: 0; border-radius: 10px; background: #d8cbd2; color: #625963; font: inherit; font-weight: 700; text-decoration: none; cursor: not-allowed; }
+    .download.available { background: var(--pink); color: white; cursor: pointer; }
+    label { display: block; margin: 16px 0 7px; font-weight: 700; }
+    input[type=file] { width: 100%; padding: 13px; border: 1px dashed #cbbbc5; border-radius: 10px; background: #fffafd; color: var(--ink); }
+    button:not(:disabled) { background: var(--pink); color: white; cursor: pointer; }
+    button { min-height: 46px; margin-top: 18px; padding: 0 18px; border: 0; border-radius: 10px; background: #d8cbd2; color: #625963; font: inherit; font-weight: 700; }
+    button:disabled { cursor: not-allowed; }
+    #message { min-height: 1.6em; margin-top: 12px; color: var(--muted); }
+    code { padding: 2px 5px; border-radius: 5px; background: #f5edf2; font-size: .93em; overflow-wrap: anywhere; }
+    ul { margin: 8px 0 0; padding-left: 22px; }
+    footer { padding: 20px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: .9rem; }
+    @media (max-width: 560px) { header { padding-top: 44px; } section, .status { padding: 19px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-inner">
+      <div class="eyebrow">Fan translation project</div>
+      <h1>Sanrio Timenet: Kako Hen</h1>
+      <p class="lede">An English translation project for the Past Edition on Game Boy Color.</p>
+    </div>
+  </header>
+  <main>
+    <div class="status" role="status" aria-live="polite">
+      <span class="dot" aria-hidden="true"></span>
+      <div><strong id="status-title">Translation in progress</strong><span id="status-copy">The English patch is not available yet. This page will host the patch when the translation is ready.</span></div>
+    </div>
+
+    <section aria-labelledby="download-title">
+      <h2 id="download-title">Patch download</h2>
+      <p id="download-copy">There is no released patch to download yet.</p>
+      <a class="download" id="patch-link" href="#" aria-disabled="true">Patch not released</a>
+    </section>
+
+    <section aria-labelledby="apply-title">
+      <h2 id="apply-title">Apply a patch in your browser</h2>
+      <p>When a patch is released, choose your clean Japanese ROM and the IPS patch. The patch is applied on this device; your ROM is not uploaded.</p>
+      <label for="rom-file">Clean Japanese ROM</label>
+      <input id="rom-file" type="file" accept=".gb,.gbc,application/octet-stream" disabled>
+      <label for="ips-file">English IPS patch</label>
+      <input id="ips-file" type="file" accept=".ips,application/octet-stream" disabled>
+      <button id="apply-button" type="button" disabled>Apply patch and save translated ROM</button>
+      <p id="message" aria-live="polite">Patching will be enabled when an English IPS file is released.</p>
+    </section>
+
+    <section aria-labelledby="source-title">
+      <h2 id="source-title">Required source ROM</h2>
+      <p>The current project targets the 1 MiB Japanese Rev 1 dump with MD5 <code>4505fd4df8eb721cf2f5b5be93682874</code>. The patcher will check the file before applying a release.</p>
+      <p class="notice">This page distributes patches only. Supply your own legally obtained game file.</p>
+    </section>
+
+    <section aria-labelledby="how-title">
+      <h2 id="how-title">How to use the patch</h2>
+      <ul>
+        <li>Obtain the supported Japanese ROM from your own cartridge.</li>
+        <li>Download the English IPS patch when it is released.</li>
+        <li>Apply the patch here or with a standard IPS patcher.</li>
+        <li>Open the new ROM in a Game Boy Color emulator or compatible flash cartridge.</li>
+      </ul>
+    </section>
+  </main>
+  <footer>Unofficial fan translation. This project is not affiliated with Sanrio, Imagineer, or TOSE.</footer>
+  <script>
+    const SOURCE_SHA256 = "d341925328066ac8bb90b6886c7366ebd61af6b1a341e1bad350127cf3edfa4c";
+    const manifestUrl = new URL("patches/manifest.json", document.baseURI);
+    const title = document.querySelector("#status-title");
+    const copy = document.querySelector("#status-copy");
+    const downloadCopy = document.querySelector("#download-copy");
+    const patchLink = document.querySelector("#patch-link");
+    const romInput = document.querySelector("#rom-file");
+    const ipsInput = document.querySelector("#ips-file");
+    const applyButton = document.querySelector("#apply-button");
+    const message = document.querySelector("#message");
+    let manifest = null;
+
+    function setMessage(text) { message.textContent = text; }
+    function hex(bytes) { return [...bytes].map(x => x.toString(16).padStart(2, "0")).join(""); }
+    async function digest(bytes) {
+      return hex(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)));
+    }
+    function applyIps(rom, ips) {
+      if (String.fromCharCode(...ips.subarray(0, 5)) !== "PATCH") throw new Error("This is not an IPS patch.");
+      const output = rom.slice();
+      let p = 5;
+      while (p + 3 <= ips.length) {
+        if (ips[p] === 0x45 && ips[p + 1] === 0x4f && ips[p + 2] === 0x46) return output;
+        if (p + 5 > ips.length) throw new Error("The IPS patch is incomplete.");
+        const offset = ips[p] * 65536 + ips[p + 1] * 256 + ips[p + 2]; p += 3;
+        const size = ips[p] * 256 + ips[p + 1]; p += 2;
+        if (size) {
+          if (p + size > ips.length || offset + size > output.length) throw new Error("The IPS record is outside the ROM or incomplete.");
+          output.set(ips.subarray(p, p + size), offset); p += size;
+        } else {
+          if (p + 3 > ips.length) throw new Error("The IPS run-length record is incomplete.");
+          const run = ips[p] * 256 + ips[p + 1], value = ips[p + 2]; p += 3;
+          if (!run || offset + run > output.length) throw new Error("The IPS run-length record is outside the ROM.");
+          output.fill(value, offset, offset + run);
+        }
+      }
+      throw new Error("The IPS patch has no end marker.");
+    }
+    async function loadManifest() {
+      try {
+        const response = await fetch(manifestUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error("Patch details are unavailable.");
+        manifest = await response.json();
+        if (manifest.status === "released" && manifest.patch) {
+          title.textContent = `English patch ${manifest.version || "available"}`;
+          copy.textContent = "The English IPS patch is ready to download and apply.";
+          downloadCopy.textContent = "Download the patch, or apply it to your ROM in this browser.";
+          patchLink.href = new URL(manifest.patch, document.baseURI).href;
+          patchLink.download = "Sanrio-Timenet-Kako-English.ips";
+          patchLink.textContent = "Download IPS patch";
+          patchLink.removeAttribute("aria-disabled");
+          patchLink.classList.add("available");
+          romInput.disabled = ipsInput.disabled = applyButton.disabled = false;
+          setMessage("Your ROM stays in this browser while patching.");
+        }
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+    applyButton.addEventListener("click", async () => {
+      try {
+        if (!manifest || manifest.status !== "released") throw new Error("The English patch is not released yet.");
+        const romFile = romInput.files[0], patchFile = ipsInput.files[0];
+        if (!romFile || !patchFile) throw new Error("Choose both the Japanese ROM and an IPS patch.");
+        setMessage("Checking ROM version…");
+        const rom = new Uint8Array(await romFile.arrayBuffer());
+        const expected = manifest.source?.sha256 || SOURCE_SHA256;
+        const actual = await digest(rom);
+        if (actual !== expected) throw new Error(`This ROM does not match the supported revision. Expected SHA-256 ${expected}; found ${actual}.`);
+        setMessage("Applying patch…");
+        const output = applyIps(rom, new Uint8Array(await patchFile.arrayBuffer()));
+        const blob = new Blob([output], { type: "application/octet-stream" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "Sanrio-Timenet-Kako-English.gbc";
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+        setMessage("Done. Your translated ROM has been saved.");
+      } catch (error) {
+        setMessage(error.message || "The patch could not be applied.");
+      }
+    });
+    loadManifest();
+  </script>
+</body>
+</html>
