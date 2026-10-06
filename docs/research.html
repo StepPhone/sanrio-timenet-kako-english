@@ -38,9 +38,21 @@
       <ul>
         <li>The supported image is the 1 MiB Japanese Rev 1 ROM documented on the <a href="index.html">project home page</a>.</li>
         <li>GCCODE2's relative search for <code>ﾀｽｹﾃｰﾎｼｲﾉ</code> returned two candidates. The saved conversion dump shows <code>たすけてーほしいの</code> at <code>0x8F665</code>. The surrounding marker bytes still need decoding.</li>
+        <li>With the Rev 1 ROM loaded, setting <code>Difference (hex)</code> to <code>B0</code> and using <code>Byte Search</code> for <code>ﾀｽｹﾃｰﾎｼｲﾉ</code> returns hits at <code>0x8F665</code> and <code>0x8F841</code>. Double-clicking the first hit jumps to the matching passage.</li>
+        <li>The GCCODE2 “Create difference kana TBL” button saves a sequential <code>00</code>–<code>FF</code> template. It still needs character assignments before it can serve as a useful table.</li>
         <li>The region near <code>0x89640</code> contains the opening story recap. The bytes at <code>0x8964F</code> decode as <code>たすけをもとめる</code> (“asking for help”) with the character mapping used in this region.</li>
         <li>The public Data Crystal table is explicitly marked as an incomplete draft for an earlier ROM revision. Its known kana mapping helps interpret some bytes, but its full mapping and control codes have not been confirmed for Rev 1.</li>
       </ul>
+    </section>
+    <section>
+      <h2>Repeatable GCCODE2 search</h2>
+      <ol>
+        <li>Press <code>F1</code> and select the supported ROM.</li>
+        <li>Leave <strong>Use table file</strong> unchecked, keep <strong>1 byte</strong> and addition selected, set <strong>Difference (hex)</strong> to <code>B0</code>, and search for the halfwidth string <code>ﾀｽｹﾃｰﾎｼｲﾉ</code> with <strong>Byte Search</strong>.</li>
+        <li>Expect two results, at <code>0x8F665</code> and <code>0x8F841</code>. Double-click the first result to jump to the text.</li>
+        <li>Press <code>F3</code> to save a full-ROM dump. GCCODE2 includes unrelated binary data in that dump, so inspect nearby ranges rather than treating it as a clean script.</li>
+      </ol>
+      <p class="notice">The <a href="https://i486.mods.jp/ichild/get-character-code-type-ii-gccode2">GCCODE2 author's guide</a> describes halfwidth-kana searches and using a found result to jump to the matching text. The <code>B0</code> offset and two locations above were confirmed against this Rev 1 ROM.</p>
     </section>
     <section>
       <h2>Provisional translation</h2>

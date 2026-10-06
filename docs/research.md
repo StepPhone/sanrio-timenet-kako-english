@@ -6,6 +6,14 @@
 - GCCODE2's relative search for `ﾀｽｹﾃｰﾎｼｲﾉ` returned two candidates. The saved
   conversion dump shows `たすけてーほしいの` at `0x8F665`; this is a useful
   dialogue lead, but surrounding marker bytes still need decoding.
+- Repeating that search in GCCODE2 with the ROM loaded, difference `B0`, and
+  **Byte Search** returns two hits at `0x8F665` and `0x8F841`. Double-clicking
+  the first hit jumps to the passage. A B0 F3 dump contains a legible kana
+  fragment there; nearby rows also include control markers and non-dialogue
+  text, so they still need review.
+- GCCODE2's **Create difference kana TBL** button saves a sequential `00`–`FF`
+  template. It does not fill the character mapping; the glyph assignments
+  must be added before loading that file as a useful table.
 - A second region around `0x89640` contains the opening story recap. The bytes
   at `0x8964F` decode as `たすけをもとめる` (“asking for help”) with the table
   mapping used by this region.
@@ -25,6 +33,17 @@ contains codes that are not yet identified, so the full sentence remains
 provisional.
 
 The draft translation ledger is [opening-dialogue.csv](translation-data/opening-dialogue.csv).
+
+## Repeatable GCCODE2 search
+
+1. Press **F1** and select the supported ROM.
+2. Leave **Use table file** unchecked, keep **1 byte** and addition selected,
+   set **Difference (hex)** to `B0`, and search for the halfwidth string
+   `ﾀｽｹﾃｰﾎｼｲﾉ` with **Byte Search**.
+3. The two results are at `0x8F665` and `0x8F841`. Double-click the first to
+   jump to the matching text.
+4. Press **F3** to save a full-ROM dump. The dump also contains graphics and
+   other binary data; use it as a source for review, not as a finished script.
 
 ## Remaining work before a playable patch
 
