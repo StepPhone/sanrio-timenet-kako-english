@@ -48,3 +48,19 @@ Actions**.
 - `tools/create_ips_patch.py` — builds an IPS patch from the clean ROM and an
   English build.
 - `docs/` — GitHub Pages site and eventual patch download.
+
+## Text-extraction research
+
+The publicly available [character table](https://datacrystal.tcrf.net/wiki/Sanrio_Timenet:_Kako_Hen_and_Mirai_Hen/TBL)
+is an incomplete draft for the original Kako Hen release, not this Rev 1 ROM.
+It is not sufficient to identify every dialogue character. Direct byte scans
+also match graphics and lookup data, so those results are not safe to translate
+as dialogue.
+
+Community notes describe building a custom table and using
+[GCCODE2](https://i486.mods.jp/ichild/get-character-code-type-ii-gccode2) to
+extract text. The available [dialogue-offset analysis](https://tetuhatoplus03game.blogspot.com/2024/08/blog-post_28.html)
+covers Mirai Hen (Future Edition); its offsets have not been confirmed for
+Kako Hen Rev 1. These are research leads, not a verified script dump. The
+project will publish a patch after the Japanese text, English replacements,
+and resulting game data can be checked against the supported ROM.

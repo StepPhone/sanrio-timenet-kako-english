@@ -31,6 +31,8 @@
     button:disabled { cursor: not-allowed; }
     #message { min-height: 1.6em; margin-top: 12px; color: var(--muted); }
     code { padding: 2px 5px; border-radius: 5px; background: #f5edf2; font-size: .93em; overflow-wrap: anywhere; }
+    a { color: var(--pink); }
+    .source-links li { margin: 8px 0; }
     ul { margin: 8px 0 0; padding-left: 22px; }
     footer { padding: 20px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: .9rem; }
     @media (max-width: 560px) { header { padding-top: 44px; } section, .status { padding: 19px; } }
@@ -71,6 +73,18 @@
       <h2 id="source-title">Required source ROM</h2>
       <p>The current project targets the 1 MiB Japanese Rev 1 dump with MD5 <code>4505fd4df8eb721cf2f5b5be93682874</code>. The patcher will check the file before applying a release.</p>
       <p class="notice">This page distributes patches only. Supply your own legally obtained game file.</p>
+    </section>
+
+    <section aria-labelledby="research-title">
+      <h2 id="research-title">Translation progress</h2>
+      <p>The dialogue has not yet been extracted reliably, so there is no playable patch. The available public character table is an incomplete draft for the original release and does not cover the full character set. Scanning the Rev 1 ROM directly produces false matches in graphics and lookup data.</p>
+      <p>A useful lead is a community analysis of the related Future Edition. It describes building a custom character table and using a ROM text converter to read dialogue data. Its reported offsets are for Future Edition and have not been verified for this Past Edition ROM.</p>
+      <ul class="source-links">
+        <li><a href="https://datacrystal.tcrf.net/wiki/Sanrio_Timenet:_Kako_Hen_and_Mirai_Hen/TBL">Incomplete public character table</a></li>
+        <li><a href="https://note.com/tetuhatoch810/n/n45be7b593025">How the custom character table was assembled</a></li>
+        <li><a href="https://i486.mods.jp/ichild/get-character-code-type-ii-gccode2">GCCODE2 text-converter information</a></li>
+        <li><a href="https://tetuhatoplus03game.blogspot.com/2024/08/blog-post_28.html">Future Edition dialogue-data analysis</a></li>
+      </ul>
     </section>
 
     <section aria-labelledby="how-title">
