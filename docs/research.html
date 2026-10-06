@@ -39,6 +39,7 @@
         <li>The supported image is the 1 MiB Japanese Rev 1 ROM documented on the <a href="index.html">project home page</a>.</li>
         <li>GCCODE2's relative search for <code>ﾀｽｹﾃｰﾎｼｲﾉ</code> returned two candidates. The saved conversion dump shows <code>たすけてーほしいの</code> at <code>0x8F665</code>. The surrounding marker bytes still need decoding.</li>
         <li>With the Rev 1 ROM loaded, setting <code>Difference (hex)</code> to <code>B0</code> and using <code>Byte Search</code> for <code>ﾀｽｹﾃｰﾎｼｲﾉ</code> returns hits at <code>0x8F665</code> and <code>0x8F841</code>. Double-clicking the first hit jumps to the matching passage.</li>
+        <li>Double-clicking the second hit jumps to <code>0x8F840</code> and shows the same phrase inside a longer kana-readable block. The conversion contains unresolved tokens such as <code>Ｔ゜55ょ&lt;</code> and <code>X</code>; the surrounding lines are extraction evidence, not a verified translation.</li>
         <li>The GCCODE2 “Create difference kana TBL” button saves a sequential <code>00</code>–<code>FF</code> template. It still needs character assignments before it can serve as a useful table.</li>
         <li>The region near <code>0x89640</code> contains the opening story recap. The bytes at <code>0x8964F</code> decode as <code>たすけをもとめる</code> (“asking for help”) with the character mapping used in this region.</li>
         <li>The public Data Crystal table is explicitly marked as an incomplete draft for an earlier ROM revision. Its known kana mapping helps interpret some bytes, but its full mapping and control codes have not been confirmed for Rev 1.</li>
@@ -58,6 +59,7 @@
       <h2>Provisional translation</h2>
       <p>The opening recap is only partly decoded near <code>0x89640</code>. The confirmed fragment <code>たすけをもとめる</code> means “asking for help.” Read alongside the community story-recap reference, the provisional sentence is: “I received a message asking for help from an old man inside the computer.”</p>
       <p class="notice">The opening phrase includes codes that are not yet identified, so the full sentence is not confirmed. The <a href="translation-data/opening-dialogue.csv">draft translation ledger</a> separates the provisional line from the confirmed fragment.</p>
+      <p>At the second search hit, GCCODE2 also renders fragments including <code>こと゛ーおしえてーくわりか９</code> and <code>らしるのせかい゛ーもとにゅー</code>. Their intended spelling and sentence breaks are not confirmed because the passage contains unresolved glyph and control tokens. The ledger records the repeated help request at both offsets without guessing at the surrounding dialogue.</p>
     </section>
     <section>
       <h2>Remaining work before a patch</h2>

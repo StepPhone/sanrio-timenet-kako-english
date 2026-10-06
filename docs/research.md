@@ -11,6 +11,10 @@
   the first hit jumps to the passage. A B0 F3 dump contains a legible kana
   fragment there; nearby rows also include control markers and non-dialogue
   text, so they still need review.
+- Double-clicking the second hit jumps to `0x8F840` and shows the same phrase
+  inside a longer kana-readable block. The conversion includes unresolved
+  tokens such as `Ｔ゜55ょ<` and `X`, so those surrounding lines are extraction
+  evidence, not a verified translation.
 - GCCODE2's **Create difference kana TBL** button saves a sequential `00`–`FF`
   template. It does not fill the character mapping; the glyph assignments
   must be added before loading that file as a useful table.
@@ -31,6 +35,13 @@ story-recap reference gives the provisional sentence “I received a message
 asking for help from an old man inside the computer.” The opening phrase
 contains codes that are not yet identified, so the full sentence remains
 provisional.
+
+At the second search hit, GCCODE2 also renders fragments including
+`こと゛ーおしえてーくわりか９` and
+`らしるのせかい゛ーもとにゅー`. Their intended spelling and sentence breaks
+are not confirmed because the same passage contains unresolved glyph and
+control tokens. The translation ledger records the repeated help request at
+both offsets without guessing at the surrounding dialogue.
 
 The draft translation ledger is [opening-dialogue.csv](translation-data/opening-dialogue.csv).
 
