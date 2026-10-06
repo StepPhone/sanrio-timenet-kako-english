@@ -30,7 +30,8 @@ python tools/create_ips_patch.py "clean Japanese.gbc" "translated.gbc" `
 ```
 
 The script accepts the known source revision only and checks that the original
-and translated images have the same size. The site applies an IPS patch in the
+and translated images have the same size. It recalculates the Game Boy header
+checksums before creating the patch. The site applies an IPS patch in the
 browser; the ROM file stays on the user's device.
 
 ## GitHub Pages

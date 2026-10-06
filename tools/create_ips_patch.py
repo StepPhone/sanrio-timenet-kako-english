@@ -14,6 +14,20 @@ def md5(data: bytes) -> str:
     return hashlib.md5(data).hexdigest()
 
 
+def fix_game_boy_checksums(rom: bytes) -> bytes:
+    if len(rom) < 0x150:
+        raise ValueError("File is too small to contain a Game Boy ROM header")
+    fixed = bytearray(rom)
+    header_checksum = 0
+    for value in fixed[0x134:0x14D]:
+        header_checksum = (header_checksum - value - 1) & 0xFF
+    fixed[0x14D] = header_checksum
+
+    global_checksum = sum(fixed[:0x14E]) + sum(fixed[0x150:])
+    fixed[0x14E:0x150] = (global_checksum & 0xFFFF).to_bytes(2, "big")
+    return bytes(fixed)
+
+
 def make_ips(original: bytes, translated: bytes) -> bytes:
     if len(original) != len(translated):
         raise ValueError("IPS build requires source and translated ROMs of equal size")
@@ -54,7 +68,7 @@ def main() -> None:
     args = parser.parse_args()
 
     original = args.original.read_bytes()
-    translated = args.translated.read_bytes()
+    translated = fix_game_boy_checksums(args.translated.read_bytes())
     actual_md5 = md5(original)
     if actual_md5 != EXPECTED_BASE_MD5:
         raise SystemExit(
@@ -72,4 +86,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
